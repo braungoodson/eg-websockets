@@ -9,9 +9,88 @@
 		<link rel="stylesheet" type="text/css" href="index.css" />
 	</head>
 <body>
+	<br />
+	<div class="container-fluid">
+		<div class="container">
+
+			<!-- Web Cam View -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Broadcast Video
+					</div>				
+					<div class="panel-body">
+						<video controls autoplay id="eg-cam"></video>
+					</div>
+					<div class="panel-footer">
+
+					</div>
+				</div>
+			<!-- Web Cam View -->
+
+			<!-- Upload Video View -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Upload Video
+					</div>				
+					<div class="panel-body">
+						<input id="eg-camcorder" accept="video/*" capture="camcorder" />
+					</div>
+					<div class="panel-footer">
+
+					</div>
+				</div>
+			<!-- Upload Video View -->
+
+			<!-- Upload Photo View -->
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						Upload Photo
+					</div>				
+					<div class="panel-body">
+						<input type="file" accept="image/*" capture="camera" />
+					</div>
+					<div class="panel-footer">
+
+					</div>
+				</div>
+			<!-- Upload Photo View -->
+
+			<!-- Chat Room View -->
+				<div class="panel panel-default" ng-controller="ChatRoomController">
+					<div class="panel-heading">
+						{{chatroom.name}}
+					</div>				
+					<div class="panel-body eg-chats">
+						<div class="media eg-chat" ng-repeat="chat in chatroom.chats">
+							<a class="pull-left" href="#">
+								<img class="media-object eg-chat-user-thumbnail" ng-src="{{chat.user.thumbnail}}" />
+							</a>
+							<div class="media-body">
+								<h4 class="media-heading"><code style="color:rgb(50,50,50);">{{chat.user.name}}</code> <span class="eg-chat-time">@ {{chat.user.chat.time}} <span class="eg-chat-says">says</span></span></h4>
+								<code style="color:grey;" class="eg-chat">{{chat.user.chat.payload}}</code>
+							</div>
+						</div>
+					</div>
+					<div class="panel-footer">
+						<div class="input-group">
+							<input type="text" class="form-control" ng-model="chatroom.user.chat.payload" />
+							<span class="input-group-btn">
+								<button class="btn btn-default" type="submit" ng-click="chatroom.chat()">chat</button>
+							</span>
+						</div>
+					</div>
+				</div>
+			<!-- Chat Room View -->
+
+		</div>
+	</div>
 	<script src="bower_components/jquery/dist/jquery.min.js"></script>
 	<script src="bower_components/twitter/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/angular/angular.min.js"></script>
+	<script src="bower_components/angular-animate/angular-animate.js"></script>
+	<script src="socket.io/socket.io.js"></script>
 	<script src="index.js"></script>
+
+
 </body>
 </html>

@@ -1,0 +1,45 @@
+div.eg-chats {
+	height:300px;
+	overflow-y:scroll;
+}
+
+img.eg-chat-user-thumbnail {
+	height:64px;
+	width:64px;
+}
+
+.eg-chat-time,
+.eg-chat-says {
+	color:rgb(200,200,200);
+	font-weight:normal;
+	font-size:14px;
+}
+
+code {
+	word-wrap:break-word;
+}
+
+.eg-chat.ng-enter {
+	-webkit-transition:.10s linear all;
+	transition:.10s linear all;
+}
+
+.eg-chat.ng-enter {
+	opacity:0;
+	background-color:yellow;
+	width:0px;
+}
+
+.eg-chat.ng-enter.ng-enter-active {
+	opacity:1;
+	background-color:white;
+	width:100%;
+}
+
+video#eg-cam {
+	width:100%;
+}
+
+video {
+	background-color:black;
+}
